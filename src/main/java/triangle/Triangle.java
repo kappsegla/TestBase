@@ -48,12 +48,12 @@ public class Triangle {
 
     //All sides has different length
     public boolean isScalene() {
-        return uniqueSides() == 1;
+        return uniqueSides() == 3;
     }
 
     //All sides has same length
     public boolean isEquilateral() {
-        if (uniqueSides() == 3) {
+        if (uniqueSides() == 1) {
             return true;
         }
         return false;
