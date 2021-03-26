@@ -19,6 +19,10 @@ public class Sensor {
         return OFFSET + pressureTelemetryValue;
     }
 
+    public void enableSensor() {
+
+    }
+
     private static double samplePressure() {
         // placeholder implementation that simulate a real sensor in a real tire
         Random basicRandomNumbersGenerator = new Random();

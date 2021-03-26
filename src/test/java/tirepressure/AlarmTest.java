@@ -3,8 +3,7 @@ package tirepressure;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class AlarmTest {
 
@@ -42,5 +41,10 @@ class AlarmTest {
         assertThat(alarm.isAlarmOn()).isTrue();
     }
 
-
+    @Test
+    void exceptionExample() {
+        Sensor sensor = mock(Sensor.class);
+        when(sensor.popNextPressurePsiValue()).thenThrow(RuntimeException.class);
+        doThrow(RuntimeException.class).when(sensor).enableSensor();
+    }
 }
