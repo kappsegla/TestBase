@@ -24,8 +24,8 @@ pipeline {
                 }
             }
         }
+        agent none
         stage('Deploy') {
-            agent {none}
             steps {
                 sh './jenkins/deliver.sh'
             }
