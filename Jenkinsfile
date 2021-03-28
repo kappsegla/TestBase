@@ -22,7 +22,7 @@ pipeline {
                 git 'https://github.com/kappsegla/TestBase.git'
 
                 // Run Maven on a Unix agent.
-                sh "./mvn clean package"
+                sh "mvn clean package"
             }
 
             post {
