@@ -26,7 +26,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh './jenkins/deliver.sh'
+                def customImage = docker.build("demo")
+//                sh './jenkins/deliver.sh'
             }
         }
     }
