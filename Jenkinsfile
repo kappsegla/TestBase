@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:3.6.3-jdk-11-slim'
-            args '-v /root/.m2:/root/.m2'
+            args '-v ~/.m2:/root/.m2'
         }
     }
     options {
@@ -25,11 +25,7 @@ pipeline {
             }
         }
         stage('Deploy') {
-            agent {
-                docker {
-                    image 'benhall/dind-jenkins-agent'
-                }
-            }
+            agent {none}
             steps {
                 sh './jenkins/deliver.sh'
             }
