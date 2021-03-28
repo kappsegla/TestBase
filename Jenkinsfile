@@ -1,11 +1,10 @@
 pipeline {
-    agent any
-//    agent {
-//        docker {
-//            image 'maven:3.6.3-jdk-11-slim'
-//            args '-v /root/.m2:/root/.m2'
-//        }
-//    }
+    agent {
+        docker {
+            image 'maven:3.6.3-jdk-11-slim'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
     options {
         skipStagesAfterUnstable()
     }
@@ -26,6 +25,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+            agent {
+                docker {
+                    image 'benhall/dind-jenkins-agent'
+                }
+            }
             steps {
                 sh './jenkins/deliver.sh'
             }
